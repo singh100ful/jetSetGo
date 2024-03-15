@@ -115,16 +115,20 @@ export const SearchResultScreen: React.FC<SearchResultScreenProps> = ({}) => {
           renderItem={({item}) => <ResultMolecule item={item} />}
         />
       </View>
-      <View style={styles.filterContainer}>
-        <Pressable onPress={() => setSort(true)} style={styles.filterButton}>
-          <Icon name="filter" size={Scale.base} color={ColorPresets.white} />
-          <TextAtom text="Sort" style={{color: ColorPresets.white}} />
-        </Pressable>
-        <Pressable onPress={() => setFilter(true)} style={styles.filterButton}>
-          <Icon name="funnel" size={Scale.base} color={ColorPresets.white} />
-          <TextAtom text="Filter" style={{color: ColorPresets.white}} />
-        </Pressable>
-      </View>
+      {initial.length !== 0 ? (
+        <View style={styles.filterContainer}>
+          <Pressable onPress={() => setSort(true)} style={styles.filterButton}>
+            <Icon name="filter" size={Scale.base} color={ColorPresets.white} />
+            <TextAtom text="Sort" style={{color: ColorPresets.white}} />
+          </Pressable>
+          <Pressable
+            onPress={() => setFilter(true)}
+            style={styles.filterButton}>
+            <Icon name="funnel" size={Scale.base} color={ColorPresets.white} />
+            <TextAtom text="Filter" style={{color: ColorPresets.white}} />
+          </Pressable>
+        </View>
+      ) : null}
     </ScreenOrganism>
   );
 };
